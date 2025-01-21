@@ -10,10 +10,40 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.27.0'
+
+    // TestNG
+    implementation 'org.testng:testng:7.10.2'
+
+    // Logback for logging
+    implementation 'ch.qos.logback:logback-classic:1.5.12'
+
+    // Monte Screen Recorder for video recording
+    implementation 'com.github.stephenc.monte:monte-screen-recorder:0.7.7.0'
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG()
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+task qa(type: Test) {
+    useTestNG()
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+}
+
+task qa1(type: Test) {
+    useTestNG() {
+        if (project.hasProperty('suite')) {
+            suites "${project.suite}"
+        }
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
 }
