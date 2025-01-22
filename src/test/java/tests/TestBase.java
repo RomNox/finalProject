@@ -32,4 +32,9 @@ public class TestBase {
     public boolean isElementPresent(By locator){
         return driver.findElements(locator).size()>0;
     }
+
+
+
+
+    
 }
