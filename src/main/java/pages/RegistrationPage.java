@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class RegistrationPage extends BasePage{
 
@@ -42,8 +43,27 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//button[contains(text(),'Create account')]")
     WebElement createAccountButton;
 
-    public LoginPage clickOnCreateAccountButton() {
+    //    public LoginPage clickOnCreateAccountButton() {
+//        click(createAccountButton);
+//        return new LoginPage(driver);
+//    }
+    public RegistrationPage clickOnCreateAccountButton() {
         click(createAccountButton);
-        return new LoginPage(driver);
+        return new RegistrationPage(driver);
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'An error occurred during registration. You may have entered an existing email.')]")
+    WebElement warningMessage;
+
+    public RegistrationPage verifyMessageOfExistedUser(String text) {
+        Assert.assertTrue(warningMessage.getText().contains(text));
+        return this;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'Password must be at least 8 characters long, include one uppercase letter, one number, and one special character.')]")
+    WebElement invalidPassword;
+    public RegistrationPage verifyMessageOfInvalidPassword(String text) {
+        Assert.assertTrue(invalidPassword.getText().contains(text));
+        return this;
     }
 }
