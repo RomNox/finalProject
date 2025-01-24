@@ -13,6 +13,10 @@ public class BaseHelper {
         this.driver = driver;
     }
 
+    public void click(WebElement element) {
+        element.click();
+    }
+
     public void clearAndType(WebElement field, String text) {
         field.clear();
         field.sendKeys(text);
