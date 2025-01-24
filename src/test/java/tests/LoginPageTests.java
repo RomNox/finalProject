@@ -19,13 +19,10 @@ public class LoginPageTests extends TestBase {
     public void testLoginWithValidData(UserData user) {
         LoginPage loginPage = new LoginPage(app.getDriver());
 
-        // Переход на страницу авторизации
         loginPage.navigateToLoginPage();
 
-        // Выполнение логина
         loginPage.login(user.getEmail(), user.getPassword());
 
-        // Ожидание изменения URL на страницу пользователя
         WebDriverWait wait = new WebDriverWait(app.getDriver(), Duration.ofSeconds(20));
         Assert.assertTrue(wait.until(ExpectedConditions.urlContains("/user")),
                 "URL не изменился на страницу пользователя.");
@@ -35,13 +32,10 @@ public class LoginPageTests extends TestBase {
     public void testLoginWithInvalidData(UserData user) {
         LoginPage loginPage = new LoginPage(app.getDriver());
 
-        // Переход на страницу авторизации
         loginPage.navigateToLoginPage();
 
-        // Выполнение логина с невалидными данными
         loginPage.login(user.getEmail(), user.getPassword());
 
-        // Ожидание появления сообщения об ошибке
         WebDriverWait wait = new WebDriverWait(app.getDriver(), Duration.ofSeconds(20));
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[contains(@class, 'text-red-500') and contains(text(), 'Произошла ошибка. Попробуйте позже.')]")
@@ -52,10 +46,8 @@ public class LoginPageTests extends TestBase {
     public void testEmptyFieldsValidation(String email, String password) {
         LoginPage loginPage = new LoginPage(app.getDriver());
 
-        // Переход на страницу авторизации
         loginPage.navigateToLoginPage();
 
-        // Очистка полей и ввод данных
         WebElement emailField = app.getDriver().findElement(By.id("email"));
         WebElement passwordField = app.getDriver().findElement(By.id("password"));
         emailField.clear();
@@ -65,7 +57,6 @@ public class LoginPageTests extends TestBase {
         passwordField.sendKeys(password);
         app.getDriver().findElement(By.cssSelector("form")).submit();
 
-        // Проверка валидационных сообщений
         JavascriptExecutor js = (JavascriptExecutor) app.getDriver();
         String emailValidationMessage = (String) js.executeScript("return arguments[0].validationMessage;", emailField);
         String passwordValidationMessage = (String) js.executeScript("return arguments[0].validationMessage;", passwordField);
