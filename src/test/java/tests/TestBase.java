@@ -1,30 +1,37 @@
 package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import appmanager.ApplicationManager;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import tests.listeners.TestListener;
 
 import java.time.Duration;
 
 public class TestBase {
 
     WebDriver driver;
-
-    @BeforeMethod
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.get("https://pets-care-u2srs.ondigitalocean.app");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+  
+  @BeforeMethod
+    public void setUp() {
+        app = new ApplicationManager();
+        app.init();
     }
-
-    @AfterMethod(enabled = false)
-    public void tearDown(){
-        driver.quit();
+  
+  @AfterMethod
+    public void tearDown() {
+        if (app != null) {
+            WebDriver driver = app.getDriver();
+            if (driver != null) {
+                driver.quit();
+            }
+        }
     }
-
+  
+  
     public boolean isHomeComponentPresent(){
         return driver.findElements(By.xpath("//h1[contains(text(),'Welcome to Pet Service')]")).size()>0;
     }
@@ -35,6 +42,10 @@ public class TestBase {
 
 
 
-
+@Listeners(TestListener.class)
+public class TestBase {
+    protected ApplicationManager app;
+    
 
 }
+
