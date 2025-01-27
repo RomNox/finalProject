@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ServicesCategoriesPage extends BaseHelper {
+public class ServicesCategoriesPage extends BasePage {
 
     // Локаторы
     private final By adminSectionButton = By.xpath("//button[contains(text(),'Admin Section')]");

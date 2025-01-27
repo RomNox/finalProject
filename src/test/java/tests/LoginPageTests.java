@@ -17,10 +17,10 @@ public class LoginPageTests extends TestBase {
 
     @Test(dataProvider = "validLoginData", dataProviderClass = DataProviders.class)
     public void testLoginWithValidData(UserData user) {
+        // Использование app из TestBase
         LoginPage loginPage = new LoginPage(app.getDriver());
 
         loginPage.navigateToLoginPage();
-
         loginPage.login(user.getEmail(), user.getPassword());
 
         WebDriverWait wait = new WebDriverWait(app.getDriver(), Duration.ofSeconds(20));
@@ -33,13 +33,13 @@ public class LoginPageTests extends TestBase {
         LoginPage loginPage = new LoginPage(app.getDriver());
 
         loginPage.navigateToLoginPage();
-
         loginPage.login(user.getEmail(), user.getPassword());
 
         WebDriverWait wait = new WebDriverWait(app.getDriver(), Duration.ofSeconds(20));
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[contains(@class, 'text-red-500') and contains(text(), 'Произошла ошибка. Попробуйте позже.')]")
         ));
+        Assert.assertNotNull(errorMessage, "Сообщение об ошибке не найдено.");
     }
 
     @Test(dataProvider = "emptyFieldsData", dataProviderClass = DataProviders.class)

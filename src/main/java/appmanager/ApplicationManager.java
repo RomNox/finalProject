@@ -23,4 +23,10 @@ public class ApplicationManager {
         return driver;
     }
 
+    public void stop() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
 }

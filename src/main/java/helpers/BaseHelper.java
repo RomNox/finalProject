@@ -17,9 +17,4 @@ public class BaseHelper {
         element.click();
     }
 
-    public void clearAndType(WebElement field, String text) {
-        field.clear();
-        field.sendKeys(text);
-        logger.debug("Entered text '{}' into field '{}'", text, field.getAttribute("id"));
-    }
 }
