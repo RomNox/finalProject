@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.ServiceTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-29T10:20:52" hostname="WIN-FDP6IMRKNFP" time="2.042">
+  <properties/>
+  <testcase name="addNewUserServicePositiveTest" classname="tests.ServiceTests" time="2.042"/>
+  <system-out><![CDATA[11:20:51.190 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //a[contains(text(),'Log in')]
+11:20:51.198 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:51.659 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //a[contains(text(),'Log in')]
+11:20:51.659 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:51.809 [Test worker] INFO pages.LoginPage -- Attempting to login with email: dana345@gm.com
+11:20:51.813 [Test worker] INFO listeners.TestListener -- The locator will find --> By.id: email
+11:20:51.814 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:51.872 [Test worker] INFO listeners.TestListener -- The locator is --> By.id: email
+11:20:51.872 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:51.939 [Test worker] INFO listeners.TestListener -- The locator will find --> By.id: email
+11:20:51.939 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:51.972 [Test worker] INFO listeners.TestListener -- The locator is --> By.id: email
+11:20:51.972 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.084 [Test worker] INFO listeners.TestListener -- The locator will find --> By.id: password
+11:20:52.085 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.118 [Test worker] INFO listeners.TestListener -- The locator is --> By.id: password
+11:20:52.118 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.157 [Test worker] INFO listeners.TestListener -- The locator will find --> By.id: password
+11:20:52.157 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.186 [Test worker] INFO listeners.TestListener -- The locator is --> By.id: password
+11:20:52.186 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.326 [Test worker] INFO listeners.TestListener -- The locator will find --> By.cssSelector: button[type='submit']
+11:20:52.327 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.371 [Test worker] INFO listeners.TestListener -- The locator is --> By.cssSelector: button[type='submit']
+11:20:52.372 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.462 [Test worker] INFO pages.LoginPage -- Login button clicked.
+11:20:52.467 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //button[contains(text(),'My Services')]
+11:20:52.468 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.849 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //button[contains(text(),'My Services')]
+11:20:52.849 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:52.963 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //span[contains(text(),'Add a New Service')]
+11:20:52.963 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.002 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //span[contains(text(),'Add a New Service')]
+11:20:53.002 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.105 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.105 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.145 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.146 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.264 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.265 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.294 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.295 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.340 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.340 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.366 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='Dog sitter']
+11:20:53.366 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.429 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='15']
+11:20:53.430 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.455 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='15']
+11:20:53.455 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.549 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='15']
+11:20:53.550 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.580 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='15']
+11:20:53.580 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.621 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //input[@placeholder='15']
+11:20:53.621 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.648 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //input[@placeholder='15']
+11:20:53.648 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.684 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: (//textarea)[1]
+11:20:53.684 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.709 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: (//textarea)[1]
+11:20:53.709 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.788 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: (//textarea)[1]
+11:20:53.789 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.811 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: (//textarea)[1]
+11:20:53.812 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.838 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: (//textarea)[1]
+11:20:53.839 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.862 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: (//textarea)[1]
+11:20:53.862 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.973 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //select[@name='type']
+11:20:53.973 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:53.998 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //select[@name='type']
+11:20:53.998 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.007 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //select[@name='type']
+11:20:54.007 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.039 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //select[@name='type']
+11:20:54.039 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.068 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //select[@name='type']
+11:20:54.069 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.088 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //select[@name='type']
+11:20:54.088 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.101 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //select[@name='type']
+11:20:54.102 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.121 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //select[@name='type']
+11:20:54.121 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.261 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //button[text()='Add Service']
+11:20:54.262 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.289 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //button[text()='Add Service']
+11:20:54.289 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.373 [Test worker] INFO listeners.TestListener -- The locator will find --> By.xpath: //h3[contains(text(),'Cat sitter')]
+11:20:54.374 [Test worker] INFO listeners.TestListener -- *********************************************
+11:20:54.473 [Test worker] INFO listeners.TestListener -- The locator is --> By.xpath: //h3[contains(text(),'Cat sitter')]
+11:20:54.473 [Test worker] INFO listeners.TestListener -- *********************************************
+]]></system-out>
+  <system-err><![CDATA[янв. 29, 2025 11:20:47 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 132, returning the closest version; found: 131; Please update to a Selenium version that supports CDP version 132
+]]></system-err>
+</testsuite>

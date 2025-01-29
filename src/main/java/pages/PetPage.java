@@ -1,4 +1,9 @@
 package pages;
 
-public class PetPage {
+import org.openqa.selenium.WebDriver;
+
+public class PetPage extends BasePage{
+    public PetPage(WebDriver driver) {
+        super(driver);
+    }
 }
