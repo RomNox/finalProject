@@ -43,10 +43,6 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//button[contains(text(),'Create account')]")
     WebElement createAccountButton;
 
-    //    public LoginPage clickOnCreateAccountButton() {
-//        click(createAccountButton);
-//        return new LoginPage(driver);
-//    }
     public RegistrationPage clickOnCreateAccountButton() {
         click(createAccountButton);
         return new RegistrationPage(driver);
@@ -62,6 +58,7 @@ public class RegistrationPage extends BasePage{
 
     @FindBy(xpath = "//div[contains(text(),'Password must be at least 8 characters long, include one uppercase letter, one number, and one special character.')]")
     WebElement invalidPassword;
+
     public RegistrationPage verifyMessageOfInvalidPassword(String text) {
         Assert.assertTrue(invalidPassword.getText().contains(text));
         return this;
