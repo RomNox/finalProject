@@ -6,26 +6,25 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.RegistrationPage;
 
-public class RegistrationTests extends TestBase {
+public class RegistrationTests extends TestBase{
 
     @BeforeMethod
-    public void precondition() {
-        // Используем app.getDriver() для получения драйвера
-        new HomePage(app.getDriver()).selectSignUp();
+    public void precondition(){
+        new HomePage(driver).selectSignUp();
     }
 
     @Test
-    public void newUserRegistrationPositiveTest() {
-        new RegistrationPage(app.getDriver())
+    public void newUserRegistrationPositiveTest(){
+        new RegistrationPage(driver)
                 .enterUserData("Alex", "Pereira", "pereira1@gmail.com", "Pereira123!")
                 .checkBoxes()
                 .clickOnCreateAccountButton();
-        new LoginPage(app.getDriver()).verifySuccessRegistration("Welcome");
+        new LoginPage(driver).verifySuccessRegistration("Welcome");
     }
 
     @Test
-    public void newUserRegistrationNegativeTest() {
-        new RegistrationPage(app.getDriver())
+    public void newUserRegistrationNegativeTest(){
+        new RegistrationPage(driver)
                 .enterUserData("Alex", "Pereira", "pereira@gmail.com", "Pereira123!")
                 .checkBoxes()
                 .clickOnCreateAccountButton()
