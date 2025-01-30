@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class tests.LoginPageTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class tests.LoginPageTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/tests.html">tests</a> &gt; LoginPageTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">5.129s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testEmptyFieldsValidation[0](, )</td>
+<td class="success">0.483s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEmptyFieldsValidation[1](validemail@example.com, )</td>
+<td class="success">0.358s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEmptyFieldsValidation[2](, validpassword)</td>
+<td class="success">0.321s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLoginWithInvalidData[0](UserData{email='invalid_email@example.com', password='wrongpassword', role='user'})</td>
+<td class="success">0.537s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLoginWithInvalidData[1](UserData{email='admin@admin.com', password='wrongpassword', role='admin'})</td>
+<td class="success">0.552s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLoginWithInvalidData[2](UserData{email='user@user.com', password='wrongpassword', role='user'})</td>
+<td class="success">0.653s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLoginWithValidData[0](UserData{email='admin@admin.com', password='admin', role='admin'})</td>
+<td class="success">1.106s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testLoginWithValidData[1](UserData{email='Romaykin@admin.com', password='0682620798Ro@', role='user'})</td>
+<td class="success">1.119s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>13:30:21.246 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:21.730 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:24.057 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:24.415 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:26.659 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:26.979 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:29.138 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:29.159 [Test worker] INFO pages.LoginPage -- Attempting to login with email: invalid_email@example.com
+13:30:29.430 [Test worker] DEBUG pages.BasePage -- Entered text 'invalid_email@example.com' into field 'email'
+13:30:29.529 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:29.588 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:29.675 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:31.872 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:31.893 [Test worker] INFO pages.LoginPage -- Attempting to login with email: admin@admin.com
+13:30:32.130 [Test worker] DEBUG pages.BasePage -- Entered text 'admin@admin.com' into field 'email'
+13:30:32.231 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:32.287 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:32.424 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:34.354 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:34.540 [Test worker] INFO pages.LoginPage -- Attempting to login with email: user@user.com
+13:30:34.773 [Test worker] DEBUG pages.BasePage -- Entered text 'user@user.com' into field 'email'
+13:30:34.876 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:34.930 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:35.007 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:36.975 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithValidData
+13:30:37.161 [Test worker] INFO pages.LoginPage -- Attempting to login with email: admin@admin.com
+13:30:37.415 [Test worker] DEBUG pages.BasePage -- Entered text 'admin@admin.com' into field 'email'
+13:30:37.502 [Test worker] DEBUG pages.BasePage -- Entered text 'admin' into field 'password'
+13:30:37.559 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:38.081 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithValidData
+13:30:40.906 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithValidData
+13:30:40.969 [Test worker] INFO pages.LoginPage -- Attempting to login with email: Romaykin@admin.com
+13:30:41.354 [Test worker] DEBUG pages.BasePage -- Entered text 'Romaykin@admin.com' into field 'email'
+13:30:41.453 [Test worker] DEBUG pages.BasePage -- Entered text '0682620798Ro@' into field 'password'
+13:30:41.515 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:42.025 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithValidData
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10</a> at 27 янв. 2025 г., 13:30:42</p>
+</div>
+</div>
+</body>
+</html>
