@@ -1,8 +1,12 @@
 package tests;
 
+import appmanager.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -10,31 +14,27 @@ import java.time.Duration;
 
 public class TestBase {
 
-    WebDriver driver;
+    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", "chrome"));
+
+    Logger logger = LoggerFactory.getLogger(TestBase.class);
+
+    public WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.get("https://pets-care-u2srs.ondigitalocean.app");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void setUp(Method method){
+        driver = app.startTest();
+        logger.info("Start test: " + method.getName());
     }
 
     @AfterMethod(enabled = false)
-    public void tearDown(){
-        driver.quit();
+    public void tearDown(ITestResult result){
+        if (result.isSuccess()){
+            logger.info("Test result: PASSED " + result.getMethod().getMethodName());
+        } else {
+            logger.error("Test result: FAILED " + result.getMethod().getMethodName());
+        }
+        logger.info("***************************************************************");
+        app.stopTest();
     }
-
-    public boolean isHomeComponentPresent(){
-        return driver.findElements(By.xpath("//h1[contains(text(),'Welcome to Pet Service')]")).size()>0;
-    }
-
-    public boolean isElementPresent(By locator){
-        return driver.findElements(locator).size()>0;
-    }
-
-
-
-
 
 }
