@@ -8,7 +8,13 @@ public class HomePageTests extends TestBase{
 
     @Test
     public void isHomeComponentPresentTest(){
-        new HomePage(driver).verifyHomeComponentPresentTest("Welcome to Pet Service");
+
+
+
+        //driver.findElement(By.xpath("//h1[contains(text(),'Welcome to Pet Service')]"));
+        //System.out.println("Home Component: " + isHomeComponentPresent());
+       new HomePage(driver).verifyHomeComponentPresent("Welcome to Pet Service");
+
     }
 
 }

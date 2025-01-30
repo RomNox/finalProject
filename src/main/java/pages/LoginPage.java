@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import helpers.BaseHelper;
 
 public class LoginPage extends BasePage{
 
@@ -44,6 +44,7 @@ public class LoginPage extends BasePage{
     private WebElement loginButton;
 
 
+
     public void navigateToLoginPage() {
         driver.get("https://pets-care-u2srs.ondigitalocean.app/#/login");
     }
@@ -51,11 +52,20 @@ public class LoginPage extends BasePage{
     public void login(String email, String password) {
         logger.info("Attempting to login with email: {}", email);
 
+
         type(emailField, email);
         type(passwordField, password);
+
+       type(emailField, email);
+       type(passwordField, password);
+
         loginButton.click();
 
         logger.info("Login button clicked.");
     }
 
+
 }
+
+
+

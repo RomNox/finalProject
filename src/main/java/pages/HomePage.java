@@ -29,12 +29,6 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    @FindBy(css = "[href='#/login']")
-    WebElement loginButton;
-
-
-    public LoginPage selectLogIn() {
-        click(loginButton);
-        return new LoginPage(driver);
-    }
 }
+
+

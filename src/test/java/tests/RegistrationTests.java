@@ -1,5 +1,6 @@
 package tests;
 
+import data.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

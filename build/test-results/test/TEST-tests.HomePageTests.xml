@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.HomePageTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-22T13:00:37" hostname="Mac.fritz.box" time="0.006">
+  <properties/>
+  <testcase name="isHomeComponentPresentTest" classname="tests.HomePageTests" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[янв. 22, 2025 2:00:36 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (131.0.6778.69) detected in PATH at /Users/monk/Tools/chromedriver might not be compatible with the detected chrome version (132.0.6834.83); currently, chromedriver 132.0.6834.83 is recommended for chrome 132.*, so it is advised to delete the driver in PATH and retry
+янв. 22, 2025 2:00:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 132, returning the closest version; found: 131; Please update to a Selenium version that supports CDP version 132
+]]></system-err>
+</testsuite>
