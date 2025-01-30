@@ -1,39 +1,24 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import java.time.Duration;
 
-import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+public class LoginPage extends BasePage {
 
-public class LoginPage extends BasePage{
+    private WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
         super(driver);
-    }
-  
-  private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
-
-    @FindBy(xpath = "//h2[contains(text(),'Welcome')]")
-    WebElement welcomeText;
-
-    public LoginPage verifySuccessRegistration(String text) {
-        Assert.assertTrue(welcomeText.getText().contains(text));
-        return this;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    @FindBy(xpath = "//div[contains(text(),'An error occurred during registration. You may have entered an existing email.')]")
-    WebElement warningMessage;
-
-    public LoginPage verifyMessageOfExistedUser(String text) {
-        Assert.assertTrue(warningMessage.getText().contains(text));
-        return this;
-    }
-
-
+    // Локаторы
     @FindBy(id = "email")
     private WebElement emailField;
 
@@ -43,29 +28,41 @@ public class LoginPage extends BasePage{
     @FindBy(css = "button[type='submit']")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//div[contains(@class, 'text-red-500')]")
+    private WebElement errorMessage;
 
-
-    public void navigateToLoginPage() {
-        driver.get("https://pets-care-u2srs.ondigitalocean.app/#/login");
-    }
-
-    public void login(String email, String password) {
-        logger.info("Attempting to login with email: {}", email);
-
-
+    // Вход в систему
+    public LoginPage login(String email, String password) {
         type(emailField, email);
         type(passwordField, password);
-
-       type(emailField, email);
-       type(passwordField, password);
-
-        loginButton.click();
-
-        logger.info("Login button clicked.");
+        click(loginButton);
+        return this;
     }
 
+    // Проверка успешного входа
+    public LoginPage verifySuccessLogin(String expectedUrlPart) {
+        Assert.assertTrue(wait.until(ExpectedConditions.urlContains(expectedUrlPart)),
+                "URL не изменился!");
+        return this;
+    }
 
+    // Проверка сообщения об ошибке
+    public LoginPage verifyErrorMessage(String expectedMessage) {
+        Assert.assertTrue(wait.until(ExpectedConditions.textToBePresentInElement(errorMessage, expectedMessage)),
+                "Ошибка не отображается!");
+        return this;
+    }
+
+    // Проверка валидации пустых полей
+    public LoginPage verifyEmptyFieldsValidation() {
+        Assert.assertEquals(getValidationMessage(emailField), "Заполните это поле.", "Email без валидации!");
+        Assert.assertEquals(getValidationMessage(passwordField), "Заполните это поле.", "Password без валидации!");
+        return this;
+    }
+
+    // Получение валидационного сообщения браузера
+    private String getValidationMessage(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (String) js.executeScript("return arguments[0].validationMessage;", element);
+    }
 }
-
-
-

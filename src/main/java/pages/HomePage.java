@@ -14,8 +14,6 @@ public class HomePage extends BasePage{
     @FindBy(css = "[href='#/register']")
     WebElement registration;
 
-
-
     public RegistrationPage selectSignUp() {
         click(registration);
         return new RegistrationPage(driver);
@@ -29,6 +27,11 @@ public class HomePage extends BasePage{
         return this;
     }
 
+    @FindBy(xpath = "//a[contains(text(),'Log in')]")
+    WebElement loginButton;
+    public LoginPage selectLogIn() {
+        click(loginButton);
+        return new LoginPage(driver);
+    }
+
 }
-
-

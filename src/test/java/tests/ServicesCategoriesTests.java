@@ -1,49 +1,35 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ServicesCategoriesPage;
 
-import java.time.Duration;
-
 public class ServicesCategoriesTests extends TestBase {
 
+    // Авторизация перед каждым тестом
+    @BeforeMethod
+    public void precondition() {
+        new HomePage(driver).selectLogIn();
+        new LoginPage(driver).login("dana345@gm.com", "Dana345$");
+    }
+
+    // Тест на добавление категории
     @Test
-    public void testAddAndDeleteCategory() {
-        LoginPage loginPage = new LoginPage(driver);
-        ServicesCategoriesPage servicesCategoriesPage = new ServicesCategoriesPage(driver);
+    public void testAddCategory() {
+        new ServicesCategoriesPage(driver)
+                .goToServicesCategories()
+                .addCategory("TestCategory")
+                .verifyCategoryExists("TestCategory");
+    }
 
-        // Переход на страницу авторизации и логин
-        loginPage.navigateToLoginPage();
-        loginPage.login("admin@admin.com", "admin");
-
-        // Убедиться, что мы на странице пользователя
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        Assert.assertTrue(wait.until(ExpectedConditions.urlContains("/user")),
-                "URL не изменился на страницу пользователя.");
-
-        // Переход в раздел Services Categories
-        servicesCategoriesPage.goToServicesCategories();
-
-        // Добавление категории
-        String testCategory = "TestCategory";
-        servicesCategoriesPage.addCategory(testCategory);
-
-        // Проверка, что категория добавлена
-        Assert.assertTrue(wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                        By.xpath("//td[text()='" + testCategory + "']"), testCategory)),
-                "Новая категория не добавлена!");
-
-        // Удаление категории
-        servicesCategoriesPage.deleteCategory(testCategory);
-
-        // Проверка, что категория удалена
-        Assert.assertTrue(wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                        By.xpath("//td[text()='" + testCategory + "']"))),
-                "Категория не была удалена!");
+    // Тест на удаление категории (предполагается, что категория уже существует)
+    @Test
+    public void testDeleteCategory() {
+        new ServicesCategoriesPage(driver)
+                .goToServicesCategories()
+                .deleteCategory("TestCategory")
+                .verifyCategoryDeleted("TestCategory");
     }
 }

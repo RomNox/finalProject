@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.LoginPageTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-01-27T12:30:21" hostname="iMac-Vladimir.local" time="20.779">
+  <properties/>
+  <testcase name="testEmptyFieldsValidation[0](, )" classname="tests.LoginPageTests" time="0.483"/>
+  <testcase name="testEmptyFieldsValidation[1](validemail@example.com, )" classname="tests.LoginPageTests" time="0.358"/>
+  <testcase name="testEmptyFieldsValidation[2](, validpassword)" classname="tests.LoginPageTests" time="0.321"/>
+  <testcase name="testLoginWithInvalidData[0](UserData{email='invalid_email@example.com', password='wrongpassword', role='user'})" classname="tests.LoginPageTests" time="0.537"/>
+  <testcase name="testLoginWithInvalidData[1](UserData{email='admin@admin.com', password='wrongpassword', role='admin'})" classname="tests.LoginPageTests" time="0.552"/>
+  <testcase name="testLoginWithInvalidData[2](UserData{email='user@user.com', password='wrongpassword', role='user'})" classname="tests.LoginPageTests" time="0.653"/>
+  <testcase name="testLoginWithValidData[0](UserData{email='admin@admin.com', password='admin', role='admin'})" classname="tests.LoginPageTests" time="1.106"/>
+  <testcase name="testLoginWithValidData[1](UserData{email='Romaykin@admin.com', password='0682620798Ro@', role='user'})" classname="tests.LoginPageTests" time="1.119"/>
+  <system-out><![CDATA[13:30:21.246 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:21.730 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:24.057 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:24.415 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:26.659 [Test worker] INFO tests.listeners.TestListener -- Test started: testEmptyFieldsValidation
+13:30:26.979 [Test worker] INFO tests.listeners.TestListener -- Test passed: testEmptyFieldsValidation
+13:30:29.138 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:29.159 [Test worker] INFO pages.LoginPage -- Attempting to login with email: invalid_email@example.com
+13:30:29.430 [Test worker] DEBUG pages.BasePage -- Entered text 'invalid_email@example.com' into field 'email'
+13:30:29.529 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:29.588 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:29.675 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:31.872 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:31.893 [Test worker] INFO pages.LoginPage -- Attempting to login with email: admin@admin.com
+13:30:32.130 [Test worker] DEBUG pages.BasePage -- Entered text 'admin@admin.com' into field 'email'
+13:30:32.231 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:32.287 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:32.424 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:34.354 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithInvalidData
+13:30:34.540 [Test worker] INFO pages.LoginPage -- Attempting to login with email: user@user.com
+13:30:34.773 [Test worker] DEBUG pages.BasePage -- Entered text 'user@user.com' into field 'email'
+13:30:34.876 [Test worker] DEBUG pages.BasePage -- Entered text 'wrongpassword' into field 'password'
+13:30:34.930 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:35.007 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithInvalidData
+13:30:36.975 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithValidData
+13:30:37.161 [Test worker] INFO pages.LoginPage -- Attempting to login with email: admin@admin.com
+13:30:37.415 [Test worker] DEBUG pages.BasePage -- Entered text 'admin@admin.com' into field 'email'
+13:30:37.502 [Test worker] DEBUG pages.BasePage -- Entered text 'admin' into field 'password'
+13:30:37.559 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:38.081 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithValidData
+13:30:40.906 [Test worker] INFO tests.listeners.TestListener -- Test started: testLoginWithValidData
+13:30:40.969 [Test worker] INFO pages.LoginPage -- Attempting to login with email: Romaykin@admin.com
+13:30:41.354 [Test worker] DEBUG pages.BasePage -- Entered text 'Romaykin@admin.com' into field 'email'
+13:30:41.453 [Test worker] DEBUG pages.BasePage -- Entered text '0682620798Ro@' into field 'password'
+13:30:41.515 [Test worker] INFO pages.LoginPage -- Login button clicked.
+13:30:42.025 [Test worker] INFO tests.listeners.TestListener -- Test passed: testLoginWithValidData
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
