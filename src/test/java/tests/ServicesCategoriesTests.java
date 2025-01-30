@@ -14,8 +14,8 @@ public class ServicesCategoriesTests extends TestBase {
 
     @Test
     public void testAddAndDeleteCategory() {
-        LoginPage loginPage = new LoginPage(app.getDriver());
-        ServicesCategoriesPage servicesCategoriesPage = new ServicesCategoriesPage(app.getDriver());
+        LoginPage loginPage = new LoginPage(driver);
+        ServicesCategoriesPage servicesCategoriesPage = new ServicesCategoriesPage(driver);
 
         // Переход на страницу авторизации и логин
         loginPage.navigateToLoginPage();

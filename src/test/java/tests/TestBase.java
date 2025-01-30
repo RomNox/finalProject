@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import appmanager.ApplicationManager;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -27,8 +28,14 @@ public class TestBase   {
 //        app.init();
 //    }
 
-    @AfterMethod
-    public void tearDown() {
+    @AfterMethod(enabled = false)
+    public void tearDown(ITestResult result){
+        if (result.isSuccess()){
+            logger.info("Test result: PASSED " + result.getMethod().getMethodName());
+        } else {
+            logger.error("Test result: FAILED " + result.getMethod().getMethodName());
+        }
+        logger.info("***************************************************************");
         app.stopTest();
     }
 
