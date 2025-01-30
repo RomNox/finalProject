@@ -36,7 +36,6 @@ public class LoginPageTests extends TestBase {
     public void testEmptyFieldsValidation(String email, String password) {
         new LoginPage(driver)
                 .login(email, password)
-                .verifyEmptyFieldsValidation();
+                .verifyEmptyFieldsValidation(email, password); // Теперь передаем параметры
     }
 }
-

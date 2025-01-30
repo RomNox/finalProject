@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,17 +56,19 @@ public class LoginPage extends BasePage {
     }
 
     // Проверка валидации пустых полей
-    public LoginPage verifyEmptyFieldsValidation() {
-        Assert.assertEquals(getValidationMessage(emailField), "Заполните это поле.", "Email без валидации!");
-        Assert.assertEquals(getValidationMessage(passwordField), "Заполните это поле.", "Password без валидации!");
+    public LoginPage verifyEmptyFieldsValidation(String email, String password) {
+        click(loginButton);
+        if (email.isEmpty()) {
+            String emailValidationMessage = emailField.getAttribute("validationMessage");
+            Assert.assertEquals(emailValidationMessage, "Заполните это поле.", "Email без валидации!");
+        }
+        if (password.isEmpty() && !email.isEmpty()) { // Проверяем password только если email НЕ пустой
+            String passwordValidationMessage = passwordField.getAttribute("validationMessage");
+            Assert.assertEquals(passwordValidationMessage, "Заполните это поле.", "Password без валидации!");
+        }
         return this;
     }
 
-    // Получение валидационного сообщения браузера
-    private String getValidationMessage(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        return (String) js.executeScript("return arguments[0].validationMessage;", element);
-    }
     // Успешная регистрация пользователя и переход на страницу регистрации
     public LoginPage verifySuccessRegistration(String text) {
         Assert.assertTrue(welcomeText.getText().contains(text));
