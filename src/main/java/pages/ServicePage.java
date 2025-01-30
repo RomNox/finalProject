@@ -91,7 +91,7 @@ public class ServicePage extends BasePage {
     WebElement noService;
 
     public ServicePage verifyDeleteServices(String text){
-        Assert.assertTrue(shouldHaveText(noService,text,10));
+        Assert.assertTrue(shouldHaveText(noService,text));
         return this;
     }
     @FindBy(xpath = "//h3[contains(text(),'Cat sitter')]")

@@ -36,8 +36,8 @@ public class BasePage {
     }
 
     // Проверка наличия текста в элементе
-    public boolean shouldHaveText(WebElement element, String text, int time) {
-        return new WebDriverWait(driver, Duration.ofSeconds(time))
+    public boolean shouldHaveText(WebElement element, String text) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
