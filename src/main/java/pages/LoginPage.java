@@ -31,6 +31,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'text-red-500')]")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//h2[contains(text(),'Welcome')]")
+    WebElement welcomeText;
+
     // Вход в систему
     public LoginPage login(String email, String password) {
         type(emailField, email);
@@ -64,5 +67,10 @@ public class LoginPage extends BasePage {
     private String getValidationMessage(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return (String) js.executeScript("return arguments[0].validationMessage;", element);
+    }
+    // Успешная регистрация пользователя и переход на страницу регистрации
+    public LoginPage verifySuccessRegistration(String text) {
+        Assert.assertTrue(welcomeText.getText().contains(text));
+        return this;
     }
 }

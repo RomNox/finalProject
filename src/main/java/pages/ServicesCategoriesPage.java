@@ -41,13 +41,13 @@ public class ServicesCategoriesPage extends BasePage {
     // Проверка, что категория добавлена
     public ServicesCategoriesPage verifyCategoryExists(String categoryName) {
         WebElement categoryElement = driver.findElement(By.xpath("//td[text()='" + categoryName + "']"));
-        shouldHaveText(categoryElement, categoryName, 10);
+        shouldHaveText(categoryElement, categoryName);
         return this;
     }
 
     // Удаление категории
     public ServicesCategoriesPage deleteCategory(String categoryName) {
-        WebElement deleteButton = driver.findElement(By.xpath("//td[text()='" + categoryName + "']/following-sibling::td//button[contains(text(),'Delete')]"));
+        WebElement deleteButton = driver.findElement(By.xpath("//tbody/tr[5]/td[2]/button[2]"));
         click(deleteButton);
         driver.switchTo().alert().accept(); // Подтверждаем удаление через алерт
         return this;

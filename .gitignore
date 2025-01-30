@@ -15,4 +15,4 @@ gradlew.bat
 *.png
 
 ### Mac OS ###
-.DS_Store
+.DS_Store.idea/

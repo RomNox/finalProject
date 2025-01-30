@@ -12,7 +12,7 @@ public class ServicesCategoriesTests extends TestBase {
     @BeforeMethod
     public void precondition() {
         new HomePage(driver).selectLogIn();
-        new LoginPage(driver).login("dana345@gm.com", "Dana345$");
+        new LoginPage(driver).login("admin@admin.com", "admin");
     }
 
     // Тест на добавление категории

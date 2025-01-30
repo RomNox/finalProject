@@ -3,6 +3,10 @@ package data;
 import models.UserData;
 import org.testng.annotations.DataProvider;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class DataProviders {
 
     @DataProvider(name = "validLoginData")
@@ -29,5 +33,54 @@ public class DataProviders {
                 {"validemail@example.com", ""}, // Только пароль пустой
                 {"", "validpassword"}   // Только email пустой
         };
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationOfNewUser(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "Pereira", "pereira1212@gmail.com", "Pereira123!"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationOfExistedUser(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "Pereira123!"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationWithInvalidPassword(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "11111111111"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationWithInvalidEmail(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "Pereira", "pereiragmail.com", "Admin123!"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationWithoutCheckboxes(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "Admin123!"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationWithoutFirstName(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"", "Pereira", "pereira@gmail.com", "Admin123!"});
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> registrationWithoutLastName(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Alex", "", "pereira@gmail.com", "Admin123!"});
+        return list.iterator();
     }
 }

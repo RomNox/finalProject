@@ -1,8 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class RegistrationPage extends BasePage{
 
@@ -34,16 +36,68 @@ public class RegistrationPage extends BasePage{
     WebElement policy;
 
     public RegistrationPage checkBoxes() {
-        click(consent);
-        click(policy);
+        if (!consent.isSelected()){
+            click(consent);
+        }
+        if (!policy.isSelected()){
+            click(policy);
+        }
         return this;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'An error occurred during registration. You may have entered an existing email.')]")
+    WebElement warningMessage;
+
+    public RegistrationPage verifyMessageOfExistedUser(String text) {
+        Assert.assertTrue(warningMessage.getText().contains(text));
+        return this;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'Password must be at least 8 characters long, include one uppercase letter, one number, and one special character.')]")
+    WebElement invalidPassword;
+    public RegistrationPage verifyMessageOfInvalidPassword(String text) {
+        Assert.assertTrue(invalidPassword.getText().contains(text));
+        return this;
+    }
+
+    public boolean verifyMessageOfInvalidEmail() {
+        WebElement emailField = driver.findElement(By.xpath("//input[@id='email']"));
+        String validationMessage = emailField.getAttribute("validationMessage");
+        String expectedMessage = "Адрес электронной почты должен содержать символ \"@\". В адресе \"pereiragmail.com\" отсутствует символ \"@\".";
+        return validationMessage.equals(expectedMessage);
+    }
+
+    public boolean checkBoxValidationTest() {
+        WebElement checkBox = driver.findElement(By.xpath("//input[@id='consent']"));
+        String validationMessage = checkBox.getAttribute("validationMessage");
+        String expectedMessage = "Чтобы продолжить, установите этот флажок.";
+        return validationMessage.equals(expectedMessage);
+
+    }
+
+    public boolean isFirstNameErrorDisplayed() {
+        WebElement firstName = driver.findElement(By.xpath("//input[@id='firstName']"));
+        String validationMessage = firstName.getAttribute("validationMessage");
+        String expectedMessage = "Заполните это поле.";
+        return validationMessage.equals(expectedMessage);
+    }
+
+    public boolean isLastNameErrorDisplayed() {
+        WebElement lastName = driver.findElement(By.xpath("//input[@id='lastName']"));
+        String validationMessage = lastName.getAttribute("validationMessage");
+        String expectedMessage = "Заполните это поле.";
+        return validationMessage.equals(expectedMessage);
     }
 
     @FindBy(xpath = "//button[contains(text(),'Create account')]")
     WebElement createAccountButton;
 
-    public LoginPage clickOnCreateAccountButton() {
+    public Object clickOnCreateAccountButton() {
         click(createAccountButton);
+        // Проверка, остались ли мы на RegistrationPage после клика
+        if (driver.getCurrentUrl().contains("/register")) {
+            return this;
+        }
         return new LoginPage(driver);
     }
 }
