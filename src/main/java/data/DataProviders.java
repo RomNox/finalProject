@@ -38,7 +38,7 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]> registrationOfNewUser(){
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereira1212@gmail.com", "Pereira123!"});
+        list.add(new Object[]{"Alex", "Pereira", "pereira1213@gmail.com", "Pereira123!"});
         return list.iterator();
     }
 
