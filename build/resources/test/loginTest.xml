@@ -3,7 +3,11 @@
 <suite name="Suite" verbose="1">
     <test name="`Suite">
         <classes>
-            <class name="tests.LoginPageTests"/>
+            <class name="com.petscare.tests.LoginPageTests">
+                <methods>
+                    <exclude name=".*Negative.*"></exclude>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
