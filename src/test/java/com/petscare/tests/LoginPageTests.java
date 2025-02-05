@@ -23,7 +23,7 @@ public class LoginPageTests extends TestBase {
                 .verifySuccessLogin("/user");
     }
 
-    // Ошибка при входе с неверными данными
+
     @Test(dataProvider = "invalidLoginDataWithoutEmptyFields", dataProviderClass = DataProviders.class)
     public void testLoginWithInvalidDataNegativeTest(UserData user) {
         new LoginPage(driver)
