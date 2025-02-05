@@ -50,6 +50,7 @@ public class LoginPage extends BasePage {
 
     // Проверка сообщения об ошибке
     public LoginPage verifyErrorMessage(String expectedMessage) {
+        pause(2000);
         Assert.assertTrue(wait.until(ExpectedConditions.textToBePresentInElement(errorMessage, expectedMessage)),
                 "Ошибка не отображается!");
         return this;

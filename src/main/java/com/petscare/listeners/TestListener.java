@@ -77,4 +77,5 @@ public class TestListener implements WebDriverListener {
         logger.info("List size is --> " + result.size());
         logger.info("*********************************************");
     }
+
 }

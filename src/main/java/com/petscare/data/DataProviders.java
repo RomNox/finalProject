@@ -3,6 +3,10 @@ package com.petscare.data;
 import com.petscare.models.UserData;
 import org.testng.annotations.DataProvider;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +17,7 @@ public class DataProviders {
     public Object[][] validLoginData() {
         return new Object[][]{
                 {new UserData("admin@admin.com", "admin", "admin")},  // Администратор
-//                {new UserData("Romaykin@admin.com", "0682620798Ro@", "user")}  // Обычный пользователь
+                {new UserData("Romaykin@admin.com", "0682620798Ro@", "user")}  // Обычный пользователь
         };
     }
 
@@ -36,37 +40,55 @@ public class DataProviders {
     }
 
     @DataProvider
-    public Iterator<Object[]> registrationOfNewUser(){
+    public Iterator<Object[]> userRegistrationWithCSV() throws IOException {
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereira70010@gmail.com", "Pereira123!"});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/newUserRegistration.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
         return list.iterator();
     }
 
     @DataProvider
-    public Iterator<Object[]> registrationOfExistedUser(){
+    public Iterator<Object[]> userRegistrationWithInvalidEmail() throws IOException {
+        CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "Pereira123!"});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/invalidEmail.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
         return list.iterator();
     }
 
     @DataProvider
-    public Iterator<Object[]> registrationWithInvalidPassword(){
+    public Iterator<Object[]> userRegistrationWithInvalidPassword() throws IOException {
+        CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "11111111111"});
-        return list.iterator();
-    }
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/invalidPassword.csv")));
 
-    @DataProvider
-    public Iterator<Object[]> registrationWithInvalidEmail(){
-        List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereiragmail.com", "Admin123!"});
-        return list.iterator();
-    }
+        String line = reader.readLine();
 
-    @DataProvider
-    public Iterator<Object[]> registrationWithoutCheckboxes(){
-        List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "Pereira", "pereira@gmail.com", "Admin123!"});
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
         return list.iterator();
     }
 

@@ -15,7 +15,7 @@ public class RegistrationTests extends TestBase{
         new HomePage(driver).selectSignUp();
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationOfNewUser")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithCSV")
     public void newUserRegistrationPositiveTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
@@ -24,8 +24,8 @@ public class RegistrationTests extends TestBase{
         new LoginPage(driver).verifySuccessRegistration("Welcome");
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationOfExistedUser")
-    public void newUserRegistrationNegativeTest(String firstName, String lastName, String email, String password){
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithCSV")
+    public void existedUserRegistrationNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
                 .checkBoxes()
@@ -33,7 +33,16 @@ public class RegistrationTests extends TestBase{
         new RegistrationPage(driver).verifyMessageOfExistedUser("An error occurred during registration. You may have entered an existing email.");
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationWithInvalidPassword")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithInvalidEmail")
+    public void registrationWithInvalidEmailNegativeTest(String firstName, String lastName, String email, String password){
+        new RegistrationPage(driver)
+                .enterUserData(firstName, lastName, email, password)
+                .checkBoxes()
+                .clickOnCreateAccountButton();
+        Assert.assertTrue(new RegistrationPage(driver).verifyMessageOfInvalidEmail());
+    }
+
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithInvalidPassword")
     public void registrationWithInvalidPasswordNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
@@ -43,16 +52,7 @@ public class RegistrationTests extends TestBase{
                 .verifyMessageOfInvalidPassword("Password must be at least 8 characters long, include one uppercase letter, one number, and one special character.");
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationWithInvalidEmail")
-    public void registrationWithInvalidEmailNegativeTest(String firstName, String lastName, String email, String password){
-        new RegistrationPage(driver)
-                .enterUserData(firstName, lastName, email, password)
-                .checkBoxes()
-                .clickOnCreateAccountButton();
-        Assert.assertTrue(new RegistrationPage(driver).verifyMessageOfInvalidEmail());
-    }
-
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationWithoutCheckboxes")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithCSV")
     public void registrationWithoutCheckboxesNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
