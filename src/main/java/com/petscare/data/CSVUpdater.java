@@ -12,9 +12,9 @@ public class CSVUpdater {
 
     public static void updateCSVFile() {
 
-        String tempFile = "src/test/resources/positiveEmail.csv";
-        String filePath = "src/test/resources/positiveEmail.csv";
-        String usedEmailsFile = "src/test/resources/usedEmails.csv";
+        String tempFile = "src/test/resources/csvFiles/newUserRegistrationNew.csv";
+        String filePath = "src/test/resources/csvFiles/newUserRegistrationNew.csv";
+        String usedEmailsFile = "src/test/resources/csvFiles/usedEmails.csv";
 
         int currentIndex = getCurrentIndex(); // Получаем текущий индекс
         System.out.println("Текущий индекс: " + currentIndex); // Выводим текущий индекс для отладки
