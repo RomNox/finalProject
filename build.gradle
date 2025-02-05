@@ -54,17 +54,17 @@ task qa2(type: Test){
         def suite5 = project.hasProperty("suite5")
         def suite6 = project.hasProperty("suite6")
         if (suite1){
-            suites 'src/test/resources/loginTest.xml'
+            suites 'src/test/resources/testSuites/loginTest.xml'
         } else if (suite2){
-            suites 'src/test/resources/registrationTest.xml'
+            suites 'src/test/resources/testSuites/registrationTest.xml'
         }else if (suite3){
-            suites 'src/test/resources/serviceTest.xml'
+            suites 'src/test/resources/testSuites/serviceTest.xml'
         }else if (suite4){
-            suites 'src/test/resources/servicesCategoriesTest.xml'
+            suites 'src/test/resources/testSuites/servicesCategoriesTest.xml'
         }else if (suite5){
-            suites 'src/test/resources/petsTest.xml'
+            suites 'src/test/resources/testSuites/petsTest.xml'
         }else if (suite6){
-            suites 'src/test/resources/negativeTests.xml'
+            suites 'src/test/resources/testSuites/negativeTests.xml'
         }
 
     }

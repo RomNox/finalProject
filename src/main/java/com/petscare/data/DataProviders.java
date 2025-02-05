@@ -42,7 +42,24 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]> userRegistrationWithCSV() throws IOException {
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/newUserRegistration.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/newUserRegistration.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> existedUserRegistration() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/existedUserRegistration.csv")));
 
         String line = reader.readLine();
 
@@ -60,7 +77,24 @@ public class DataProviders {
     public Iterator<Object[]> userRegistrationWithInvalidEmail() throws IOException {
         CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/invalidEmail.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/invalidEmail.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> userRegistrationWithoutDomainName() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/emailWithoutDomainName.csv")));
 
         String line = reader.readLine();
 
@@ -78,7 +112,7 @@ public class DataProviders {
     public Iterator<Object[]> userRegistrationWithInvalidPassword() throws IOException {
         CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/invalidPassword.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/invalidPassword.csv")));
 
         String line = reader.readLine();
 
@@ -93,16 +127,39 @@ public class DataProviders {
     }
 
     @DataProvider
-    public Iterator<Object[]> registrationWithoutFirstName(){
+    public Iterator<Object[]> userRegistrationWithoutFirstName() throws IOException {
+        CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"", "Pereira", "pereira@gmail.com", "Admin123!"});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/registrationWithoutFirstname.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
         return list.iterator();
     }
 
     @DataProvider
-    public Iterator<Object[]> registrationWithoutLastName(){
+    public Iterator<Object[]> userRegistrationWithoutLastName() throws IOException {
+        CSVUpdater.updateCSVFile();
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alex", "", "pereira@gmail.com", "Admin123!"});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/csvFiles/registrationWithoutLastname.csv")));
+
+        String line = reader.readLine();
+
+        while (line != null){
+
+            list.add(line.split(","));
+
+            line = reader.readLine();
+        }
+
         return list.iterator();
     }
+
 }

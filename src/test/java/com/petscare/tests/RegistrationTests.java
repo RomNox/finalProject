@@ -24,7 +24,16 @@ public class RegistrationTests extends TestBase{
         new LoginPage(driver).verifySuccessRegistration("Welcome");
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithCSV")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithoutDomainName")
+    public void newUserRegistrationWithoutDomainNegativeTest(String firstName, String lastName, String email, String password){
+        new RegistrationPage(driver)
+                .enterUserData(firstName, lastName, email, password)
+                .checkBoxes()
+                .clickOnCreateAccountButton();
+        new LoginPage(driver).verifySuccessRegistration("Welcome");
+    }
+
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "existedUserRegistration")
     public void existedUserRegistrationNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
@@ -60,7 +69,7 @@ public class RegistrationTests extends TestBase{
         Assert.assertTrue(new RegistrationPage(driver).checkBoxValidationTest());
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationWithoutFirstName")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithoutFirstName")
     public void registrationWithoutFirstNameNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
@@ -69,7 +78,7 @@ public class RegistrationTests extends TestBase{
         Assert.assertTrue(new RegistrationPage(driver).isFirstNameErrorDisplayed());
     }
 
-    @Test(dataProviderClass = DataProviders.class,dataProvider = "registrationWithoutLastName")
+    @Test(dataProviderClass = DataProviders.class,dataProvider = "userRegistrationWithoutLastName")
     public void registrationWithoutLastNameNegativeTest(String firstName, String lastName, String email, String password){
         new RegistrationPage(driver)
                 .enterUserData(firstName, lastName, email, password)
