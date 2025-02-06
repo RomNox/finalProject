@@ -16,7 +16,7 @@ Public repository:
 https://github.com/RomNox/finalProject
 
 Test Plan:  
-Test Plan Pet Service (Test%20plan%20Pet%20Service.xlsx)
+Test Plan Pet Service [(Test%20plan%20Pet%20Service.xlsx)](https://docs.google.com/spreadsheets/d/1gTUD-IqnO0w2ujMA5a3g1kEghGazr4yl/edit?usp=sharing&ouid=111919283918973058395&rtpof=true&sd=true)
 
 ## Our approach to testing
 
