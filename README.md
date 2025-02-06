@@ -83,7 +83,7 @@ We used a structured and systematic approach based on best testing practices:
 
 ## Team contribution
 
-This project was developed by Brigade 40 as part of the final test assignment.
+This project was developed by a team of students as part of the final test assignment.
 
 ### Team members:
 - **Vladimir Romaikin** (Project manager)
