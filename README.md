@@ -3,9 +3,9 @@
 ## About the project
 
 This project was created as part of the final stage of the software testing course and is educational. We,  
-the Brigade 40 team, conducted a comprehensive testing of the PetSitters platform, developed by students as an educational web application.
+the Students team, conducted a comprehensive testing of the PetSitters platform, developed by students as an educational web application.
 
-PetSitters is a service for searching and booking pet care services. The platform allows users to register, find verified performers, manage orders, leave reviews, and use a rating system.  
+PetSitters (https://pets-care-u2srs.ondigitalocean.app/#/) is a service for searching and booking pet care services. The platform allows users to register, find verified performers, manage orders, leave reviews, and use a rating system.  
 The project includes various modules, such as a personal account, authorization system, service booking, and profile management.
 
 The main goal of our work is to test this project from different aspects, using various testing methodologies, modern tools, and working through the entire testing cycle from requirements analysis to reporting.
